@@ -11,6 +11,25 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
 //= require turbolinks
+//= require jquery
+//= require bootstrap-sprockets
 //= require_tree .
+
+$(function () {
+  $(".slide").slick({
+    arrows: false,
+    dots: false,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    speed: 1500,
+    fade: true,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    pauseOnDotsHover: false,
+  });
+
+  $("#nav-toggle").on("click", function () {
+    $("body").toggleClass("open");
+  });
+});

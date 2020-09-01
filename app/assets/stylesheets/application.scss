@@ -1,0 +1,388 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets"; /*ここを追加*/
+@import "bootstrap"; /*ここを追加\*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  background-color: black;
+  color: #333;
+  font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体",
+    "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ",
+    "Meiryo", "verdana", sans-serif;
+}
+
+/*------------共通-------------*/
+a {
+  color: #333;
+  text-decoration: none;
+}
+a:hover {
+  color: #5c6567;
+  text-decoration: none;
+}
+.txt_color_white {
+  color: #fff;
+}
+.txt_size_m {
+  font-size: 18px;
+}
+/*------------ヘッダー-------------*/
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+}
+
+.header__wrap {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+.header__flex {
+  display: flex;
+  justify-content: space-between;
+}
+.header-right {
+  position: relative;
+}
+.logo__img {
+  width: 80px;
+}
+
+/*------------ハンバーガメニュー-------------*/
+
+#nav-toggle {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  height: 32px;
+  cursor: pointer;
+
+  div {
+    position: relative;
+    width: 50px;
+  }
+  span {
+    width: 100%;
+    left: 0;
+    display: block;
+    background-color: #b76cfd;
+    position: absolute;
+    transition: transform 0.6s ease-in-out, top 0.5s ease;
+
+    &:nth-child(1) {
+      height: 1px;
+      top: 0;
+    }
+    &:nth-child(2) {
+      height: 2px;
+      top: 18px;
+    }
+    &:nth-child(3) {
+      height: 3px;
+      top: 36px;
+    }
+  }
+
+  &:hover span:nth-child(1) {
+    top: 4px;
+  }
+  &:hover span:nth-child(3) {
+    top: 30px;
+  }
+}
+
+.open {
+  #nav-toggle span {
+    background: #fff;
+
+    &:nth-child(1) {
+      height: 3px;
+      top: 15px;
+      transform: rotate(45deg);
+    }
+    &:nth-child(2) {
+      top: 15px;
+      width: 0;
+      left: 50%;
+    }
+    &:nth-child(3) {
+      top: 15px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+/* z-index */
+#nav-toggle {
+  z-index: 1000;
+}
+#container {
+  z-index: 900;
+}
+
+#gloval-nav {
+  background: #dbd1c8;
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 990;
+  text-align: center;
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 29px;
+  opacity: 0;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#gloval-nav {
+  a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+    transition: color 0.6s ease;
+
+    &:hover {
+      color: #666;
+    }
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      opacity: 0;
+      transform: translateX(200px);
+      transition: transform 0.6s ease, opacity 0.2s ease;
+
+      &:nth-child(2) {
+        transition-delay: 0.15s;
+      }
+      &:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+      &:nth-child(4) {
+        transition-delay: 0.45s;
+      }
+      &:nth-child(5) {
+        transition-delay: 0.6s;
+      }
+      &:nth-child(6) {
+        transition-delay: 0.75s;
+      }
+      &:nth-child(7) {
+        transition-delay: 0.9s;
+      }
+    }
+  }
+}
+
+/* open */
+.open {
+  overflow: hidden;
+
+  #gloval-nav {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  #gloval-nav li {
+    opacity: 1;
+    transform: translateX(0);
+    transition: transform 1s ease, opacity 0.9s ease;
+  }
+}
+
+/*------------メインビジュアル-------------*/
+main {
+  width: 100%;
+  margin: auto 0;
+}
+.main-visual {
+  position: relative;
+  // background-image: url(main_bg.png);
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+}
+.main-visual__txt {
+  letter-spacing: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main-visual__logo__img {
+  width: 300px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+}
+/*------------メインビジュアルスライド-------------*/
+
+.main-visual__slide1 {
+  width: 500px;
+  position: absolute;
+  right: -50px;
+  bottom: 300px;
+  transform: perspective(200px) rotateY(350deg) skew(10deg, -20deg);
+  .slick-slide {
+    height: 300px !important;
+  }
+}
+.main-visual__slide2 {
+  width: 250px;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  transform: perspective(250px) rotateY(350deg) skew(10deg, -30deg);
+  .slick-slide {
+    height: 150px !important;
+  }
+}
+.main-visual__slide3 {
+  width: 250px;
+  position: absolute;
+  right: 150px;
+  bottom: 50px;
+  transform: perspective(250px) rotateY(340deg) skew(5deg, -5deg);
+  .slick-slide {
+    height: 150px !important;
+  }
+}
+.main-visual__slide4 {
+  width: 500px;
+  position: absolute;
+  left: -50px;
+  bottom: 100px;
+  transform: perspective(250px) rotateY(15deg) skew(-5deg, 5deg);
+  .slick-slide {
+    height: 300px !important;
+  }
+}
+.main-visual__slide5 {
+  width: 300px;
+  position: absolute;
+  left: -50px;
+  top: 200px;
+  transform: perspective(250px) rotateY(10deg) skew(-5deg, 20deg);
+  .slick-slide {
+    height: 200px !important;
+  }
+}
+.main-visual__slide6 {
+  width: 200px;
+  position: absolute;
+  left: 150px;
+  top: 130px;
+  transform: perspective(250px) rotateY(5deg) skew(-5deg, 25deg);
+  .slick-slide {
+    height: 100px !important;
+  }
+}
+.slide__img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/*------------フッター-------------*/
+
+/*------------モバイル版-------------*/
+@media (max-width: 900px) {
+  /*------------メインビジュアル-------------*/
+  .main-visual {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .main-visual__txt {
+    top: 40vh;
+    left: 35%;
+  }
+  .main-visual__logo__img {
+    display: none;
+  }
+  /*------------ヘッダー-------------*/
+  .logo__img {
+    width: 50px;
+  }
+  /*------------ハンバーガメニュー-------------*/
+
+  #nav-toggle {
+    top: 10px;
+    right: 0;
+    div {
+      width: 30px;
+    }
+    span {
+      background-color: #fff;
+      &:nth-child(1) {
+        top: 0;
+      }
+      &:nth-child(2) {
+        top: 10px;
+      }
+      &:nth-child(3) {
+        top: 20px;
+      }
+    }
+
+    &:hover span:nth-child(1) {
+      top: 4px;
+    }
+    &:hover span:nth-child(3) {
+      top: 16px;
+    }
+  }
+
+  .open {
+    #nav-toggle span {
+      background: #fff;
+
+      &:nth-child(1) {
+        height: 3px;
+        top: 15px;
+        transform: rotate(45deg);
+      }
+      &:nth-child(2) {
+        top: 15px;
+        width: 0;
+        left: 50%;
+      }
+      &:nth-child(3) {
+        top: 15px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}

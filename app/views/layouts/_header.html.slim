@@ -1,0 +1,31 @@
+header
+  .header__wrap
+      .header__flex
+        .header-left
+          .logo
+            = link_to root_path do
+              = image_tag asset_path("logo_s.png"), class: "logo__img"
+        .header-right#nav
+          #nav-toggle
+            div
+              span
+              span
+              span
+
+          #gloval-nav
+            nav.standard__txt
+              ul
+                li
+                    = link_to 'PROFILE', root_path, class:"nav__txt"
+                li
+                    = link_to 'BLOG', root_path, class:"nav__txt"
+                li
+                    = link_to 'CONTACT', root_path, class:"nav__txt"
+                / -if admin_signed_in?
+                /   li
+                /     = link_to "LOGOUT", destroy_admin_session_path, method: :delete
+                / li.text_color_white
+                /   = search_form_for @q, url: blogs_path do |f|
+                /     = f.search_field :tag_or_title_cont ,placeholder: 'search', class:"search__input2"
+                /     = button_tag type: 'submit', class: 'search__btn2' do
+                /         i.fa.fa-search
