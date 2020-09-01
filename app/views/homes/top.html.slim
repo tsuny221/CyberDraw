@@ -1,6 +1,12 @@
 .main-visual
   p.txt_color_white.main-visual__txt.txt_size_m 未来を創造しよう
   = image_tag asset_path("logo.png"), class: "main-visual__logo__img"
+  .billboard
+    = image_tag asset_path("kanban.png"), class: "billboard__img"
+    p.billboard__txt.txt_color_white
+      span.font_theme_cyber ホンジツノオダイハ　『ヘッドフォン』
+      br
+      span.txt_size_xs 「#本日のお題」で作品を投稿しよう！
   .main-visual__slide1
     .slide
           = image_tag asset_path("sample.jpg"), class: "slide__img"

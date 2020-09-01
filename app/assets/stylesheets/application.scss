@@ -46,6 +46,12 @@ a:hover {
 .txt_size_m {
   font-size: 18px;
 }
+.txt_size_s {
+  font-size: 14px;
+}
+.txt_size_xs {
+  font-size: 10px;
+}
 /*------------ヘッダー-------------*/
 header {
   width: 100%;
@@ -86,7 +92,7 @@ header {
     width: 100%;
     left: 0;
     display: block;
-    background-color: #b76cfd;
+    background-color: #01ffff;
     position: absolute;
     transition: transform 0.6s ease-in-out, top 0.5s ease;
 
@@ -114,7 +120,7 @@ header {
 
 .open {
   #nav-toggle span {
-    background: #fff;
+    background: #01ffff;
 
     &:nth-child(1) {
       height: 3px;
@@ -142,7 +148,7 @@ header {
 }
 
 #gloval-nav {
-  background: #dbd1c8;
+  background: black;
   color: #fff;
   position: fixed;
   top: 0;
@@ -240,6 +246,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 80;
 }
 .main-visual__logo__img {
   width: 300px;
@@ -247,7 +254,35 @@ main {
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 99;
+  z-index: 80;
+}
+.billboard {
+  width: 400px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 80;
+}
+
+.billboard__img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.billboard__txt {
+  text-align: center;
+  font-size: 15px;
+  width: 100%;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 80;
+}
+.font_theme_cyber {
+  font-family: "Nico Moji";
 }
 /*------------メインビジュアルスライド-------------*/
 
@@ -326,10 +361,16 @@ main {
     margin: 0 auto;
   }
   .main-visual__txt {
-    top: 40vh;
-    left: 35%;
+    left: 300px;
+    top: 400px;
+    transform: perspective(250px) rotateY(20deg) skew(-5deg, 15deg);
   }
-  .main-visual__logo__img {
+
+  /*------------メインビジュアルスライド-------------*/
+
+  .main-visual__slide1,
+  .main-visual__slide2,
+  .main-visual__slide3 {
     display: none;
   }
   /*------------ヘッダー-------------*/
@@ -345,7 +386,6 @@ main {
       width: 30px;
     }
     span {
-      background-color: #fff;
       &:nth-child(1) {
         top: 0;
       }
@@ -367,8 +407,6 @@ main {
 
   .open {
     #nav-toggle span {
-      background: #fff;
-
       &:nth-child(1) {
         height: 3px;
         top: 15px;

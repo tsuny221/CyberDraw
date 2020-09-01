@@ -16,11 +16,14 @@ header
             nav.standard__txt
               ul
                 li
-                    = link_to 'PROFILE', root_path, class:"nav__txt"
+                    = link_to root_path, class:"nav__txt" do
+                      = image_tag asset_path("logo_s.png"), class: "logo__img"
                 li
-                    = link_to 'BLOG', root_path, class:"nav__txt"
+                    = link_to root_path, class:"nav__txt" do
+                      = image_tag asset_path("logo_s.png"), class: "logo__img"
                 li
-                    = link_to 'CONTACT', root_path, class:"nav__txt"
+                    = link_to root_path, class:"nav__txt" do
+                      = image_tag asset_path("logo_s.png"), class: "logo__img"
                 / -if admin_signed_in?
                 /   li
                 /     = link_to "LOGOUT", destroy_admin_session_path, method: :delete
