@@ -74,7 +74,21 @@ header {
 .logo__img {
   width: 80px;
 }
-
+.header__img {
+  height: 20px;
+  margin-right: 20px;
+  margin-top: 10px;
+}
+.header-right__cont:nth-child(1) {
+  margin-right: 120px;
+}
+.header-right__cont i {
+  color: #01ffff;
+  position: absolute;
+  font-size: 40px;
+  right: 90px;
+  top: 10px;
+}
 /*------------ハンバーガメニュー-------------*/
 
 #nav-toggle {
@@ -284,6 +298,12 @@ main {
 .font_theme_cyber {
   font-family: "Nico Moji";
 }
+.nav__img {
+  height: 50px;
+}
+.nav__txt {
+  margin: 20px 0px;
+}
 /*------------メインビジュアルスライド-------------*/
 
 .main-visual__slide1 {
@@ -365,7 +385,14 @@ main {
     top: 400px;
     transform: perspective(250px) rotateY(20deg) skew(-5deg, 15deg);
   }
+  .billboard {
+    width: 300px;
+    top: 12%;
+  }
 
+  .billboard__img {
+    height: auto;
+  }
   /*------------メインビジュアルスライド-------------*/
 
   .main-visual__slide1,
@@ -373,9 +400,23 @@ main {
   .main-visual__slide3 {
     display: none;
   }
+
   /*------------ヘッダー-------------*/
   .logo__img {
     width: 50px;
+  }
+  .header__img {
+    height: 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+  }
+  .header-right__cont:nth-child(1) {
+    margin-right: 65px;
+  }
+  .header-right__cont i {
+    font-size: 30px;
+    right: 40px;
+    top: 8px;
   }
   /*------------ハンバーガメニュー-------------*/
 
@@ -422,5 +463,13 @@ main {
         transform: rotate(-45deg);
       }
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .main-visual__txt {
+    left: 100px;
+    top: 400px;
+    transform: perspective(250px) rotateY(20deg) skew(-5deg, 15deg);
   }
 }
