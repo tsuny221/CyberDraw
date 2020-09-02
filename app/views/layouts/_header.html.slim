@@ -7,10 +7,10 @@ header
               = image_tag asset_path("logo_s.png"), class: "logo__img"
         .header-right
           .header-right__cont
-            = link_to root_path, class:"nav__txt" do
-                      = image_tag asset_path("login.png"), class: "header__img"
-            = link_to root_path, class:"nav__txt" do
-                      = image_tag asset_path("signup.png"), class: "header__img"
+            = link_to user_session_path, class:"nav__txt" do
+                = image_tag asset_path("login.png"), class: "header__img"
+            = link_to new_user_registration_path, class:"nav__txt" do
+                = image_tag asset_path("signup.png"), class: "header__img"
             i.fab.fa-searchengin.txt_color_white
           #nav
             #nav-toggle

@@ -52,6 +52,27 @@ a:hover {
 .txt_size_xs {
   font-size: 10px;
 }
+/*------------フォーム------------*/
+.form__wrap {
+  height: 100vh;
+}
+.form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 80;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.92);
+  width: 300px;
+  padding: 40px 0 38px;
+  border-radius: 4px;
+}
+#particles-js {
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+}
 /*------------ヘッダー-------------*/
 header {
   width: 100%;
