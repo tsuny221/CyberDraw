@@ -64,7 +64,7 @@ a:hover {
   z-index: 80;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.92);
-  width: 300px;
+  width: 363px;
   padding: 40px 0 38px;
   border-radius: 4px;
 }
@@ -72,6 +72,38 @@ a:hover {
   width: 90%;
   height: 100vh;
   margin: 0 auto;
+}
+
+.form__input {
+  width: 290px;
+  height: 40px;
+  color: #000;
+  display: block;
+  outline: 0;
+  margin: 10px auto;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  border: #ccc;
+  border-radius: 4px;
+}
+input::placeholder {
+  color: #999;
+}
+.form__submit {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 22px;
+  border-style: none;
+  color: #fff;
+  background: #01ffff;
+  outline: none;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.2s;
 }
 /*------------ヘッダー-------------*/
 header {
