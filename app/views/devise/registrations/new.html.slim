@@ -2,8 +2,9 @@
   .container
     .row
       .form
-          h2
-            | アカウントを作成
+          = image_tag asset_path("logo.png"), class:"form__logo"
+          h3.font_theme_cyber
+            | アカウントをさくせい
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = render "devise/shared/error_messages", resource: resource
             .field
@@ -13,6 +14,6 @@
             .field
               = f.password_field :password_confirmation, autocsomplete: "new-password",placeholder:"パスワード再入力", class:"form__input"
             .actions
-              = f.submit "次へ", class:"form__submit"
+              = f.submit "NEXT", class:"form__submit font_theme_cyber"
           = render "devise/shared/links"
 = javascript_include_tag 'signup.js'

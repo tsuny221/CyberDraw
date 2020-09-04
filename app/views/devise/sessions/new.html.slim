@@ -2,20 +2,19 @@
   .container
     .row
       .form
-        h2
-          | ログイン
+        = image_tag asset_path("logo.png"), class:"form__logo"
+        h3.font_theme_cyber
+            | ログイン
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .field
-            = f.label :email
-            = f.email_field :email, autofocus: true, autocomplete: "email"
+            = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"メールアドレス", class:"form__input"
           .field
-            = f.label :password
-            = f.password_field :password, autocomplete: "current-password"
+            = f.password_field :password, autocomplete: "new-password",placeholder:"パスワード", class:"form__input"
           - if devise_mapping.rememberable?
             .field
               = f.check_box :remember_me
               = f.label :remember_me
           .actions
-            = f.submit "Log in"
+            = f.submit "ログイン", class:"form__submit font_theme_cyber"
         = render "devise/shared/links"
 = javascript_include_tag 'login.js'

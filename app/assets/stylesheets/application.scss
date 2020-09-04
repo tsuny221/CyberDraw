@@ -52,6 +52,9 @@ a:hover {
 .txt_size_xs {
   font-size: 10px;
 }
+.font_theme_cyber {
+  font-family: "Nico Moji";
+}
 /*------------フォーム------------*/
 .form__wrap {
   height: 100vh;
@@ -104,6 +107,9 @@ input::placeholder {
   font-size: 14px;
   text-align: center;
   transition: background-color 0.2s;
+}
+.form__logo {
+  width: 70%;
 }
 /*------------ヘッダー-------------*/
 header {
@@ -348,9 +354,7 @@ main {
   transform: translate(-50%, -50%);
   z-index: 80;
 }
-.font_theme_cyber {
-  font-family: "Nico Moji";
-}
+
 .nav__img {
   height: 50px;
 }
