@@ -1,0 +1,17 @@
+.form__wrap#particles-js
+  .container
+    .row
+      .form
+          = image_tag asset_path("logo.png"), class:"form__logo"
+          h3.font_theme_cyber
+            | プロフィールさくせい
+          = form_with model:@user, url:edit_user_path, rocal: true do |f|
+            .field
+              = f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"名前", class:"form__input"
+            .field
+              = f.date_field :birth_date, autofocus: true, autocomplete: "date",placeholder:"生年月日", class:"form__input"
+            .field
+              = f.text_area :introduction, autofocus: true, autocomplete: "introduction",placeholder:"紹介文", class:"form__input"
+            .actions
+              = f.submit "登録", class:"form__submit font_theme_cyber"
+= javascript_include_tag 'signup.js'
