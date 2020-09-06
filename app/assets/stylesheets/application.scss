@@ -61,6 +61,7 @@ a:hover {
 }
 .form {
   position: absolute;
+  margin: 10% 0px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -71,9 +72,13 @@ a:hover {
   padding: 40px 0 38px;
   border-radius: 4px;
 }
+.field {
+  width: 80%;
+  margin: 0 auto;
+}
 #particles-js {
   width: 90%;
-  height: 100vh;
+  height: 130vh;
   margin: 0 auto;
 }
 
@@ -92,9 +97,35 @@ a:hover {
 input::placeholder {
   color: #999;
 }
+.form select {
+  width: 90px;
+  height: 40px;
+  color: #000;
+  outline: 0;
+  margin: 10px auto;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  border: #ccc;
+  border-radius: 4px;
+}
+.form__radio input {
+  transform: scale(1.5);
+  margin-right: 10px;
+  border: 1px solid #dfebf2 !important;
+}
+.form__radio input:checked {
+  color: #000;
+  border: 1px solid #dfebf2;
+}
+
+.form__radio label {
+  vertical-align: middle;
+  transform: scale(1);
+  margin-right: 30px;
+}
 .form__submit {
   display: block;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 300px;
   height: 40px;
   line-height: 40px;
@@ -110,6 +141,25 @@ input::placeholder {
 }
 .form__logo {
   width: 70%;
+}
+.form__label {
+  color: #4d4a4d;
+  font-size: 14px;
+  font-weight: 700;
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+}
+.error__messages {
+  width: 80%;
+  margin: 5px auto;
+  padding: 5px;
+  background-color: #ccc;
+  list-style: none;
+  border-radius: 5px;
+}
+.share__links {
+  margin-top: 20px;
 }
 /*------------ヘッダー-------------*/
 header {

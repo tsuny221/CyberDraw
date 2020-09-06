@@ -6,13 +6,13 @@ ja:
           attributes:
             email:
               taken: "は既に使用されています。"
-              blank: "が入力されていません。"
+              blank: "を入力してください。"
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
             password:
               taken: "は既に使用されています。"
-              blank: "が入力されていません。"
+              blank: "を入力してください。"
               too_short: "は%{count}文字以上に設定して下さい。"
               too_long: "は%{count}文字以下に設定して下さい。"
               invalid: "は有効でありません。"
@@ -20,11 +20,13 @@ ja:
     attributes:
       user:
         current_password: "現在のパスワード"
-        name: 名前
+        name: ニックネーム
         email: "メールアドレス"
         password: "パスワード"
-        password_confirmation: "確認用パスワード"
+        password_confirmation: "パスワード確認"
         remember_me: "次回から自動的にログイン"
+        gender: 性別
+        birth_date: 生年月日
     models:
       user: "ユーザ"
   devise:
