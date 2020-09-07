@@ -7,6 +7,22 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      user:
+        current_password: "現在のパスワード"
+        name: ニックネーム
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+        remember_me: "次回から自動的にログイン"
+        gender: 性別
+        birth_date: 生年月日
+        image: プロフィール画像
+      post:
+        name: "タグ"
+        age_limit: "年齢制限"
+        images: "作品"
+        open_range: "公開範囲"
   date:
     abbr_day_names:
       - 日

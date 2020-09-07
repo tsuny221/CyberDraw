@@ -1,0 +1,41 @@
+= video_tag asset_path("top-video.mp4"), autoplay: :true, loop: :true, muted: :true, class: 'post__form__bg'
+.post__wrap
+  .container
+    .row
+      .post__form
+          = form_with model: @post, url: posts_path, local: true do |f|
+            .field
+              = f.label :images, class:"form__label"
+              #image-box-1
+                  .item-num-0#image-box__container
+              label.form__image__label
+                i.fa.fa-camera
+                p.txt_size_xs 画像選択
+                = f.file_field :images, class:"form__image", id:"img-file",multiple: true
+            .field
+              = f.text_field :title, autofocus: true, autocomplete: "name",placeholder:"作品タイトル", class:"form__input"
+              = f.text_area :caption, autofocus: true, autocomplete: "email",placeholder:"キャプション", class:"form__area"
+            .field
+                = f.label :name, class: "form__label"
+                = f.text_field :name, class: "form__input"
+            .field
+              = f.label :age_limit, class:"form__label"
+              .form__radio
+                = f.radio_button :age_limit, :全年齢, checked: "checked"
+                = f.label :全年齢
+                = f.radio_button :age_limit, :"R-18"
+                = f.label :"R-18"
+                = f.radio_button :age_limit, :"R-18G"
+                = f.label :"R-18G"
+            .field
+              = f.label :open_range, class:"form__label"
+              .form__radio
+                = f.radio_button :open_range, :全体に公開, checked: "checked"
+                = f.label :全体に公開
+                = f.radio_button :open_range, :フォロワーに公開
+                = f.label :フォロワーに公開
+                = f.radio_button :open_range, :非公開
+                = f.label :非公開
+            .actions
+              = f.submit "投稿する", class:"form__submit font_theme_cyber"
+= javascript_include_tag 'post.js'

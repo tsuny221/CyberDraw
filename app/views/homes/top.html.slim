@@ -41,3 +41,9 @@
 main
   .container
     .row
+      ul
+        - @posts.each do |post|
+          li = post.title
+          /一枚目をサムネとして表示
+          - post.images.first(1).each do |image|
+            = image_tag url_for(image), class:"post__img"

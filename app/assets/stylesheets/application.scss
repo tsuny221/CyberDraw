@@ -94,6 +94,19 @@ a:hover {
   border: #ccc;
   border-radius: 4px;
 }
+.form__area {
+  width: 290px;
+  height: 100px;
+  color: #000;
+  display: block;
+  outline: 0;
+  margin: 10px auto;
+  padding: 0 0 0 10px;
+  font-size: 14px;
+  border: #ccc;
+  border-radius: 4px;
+}
+textarea::placeholder,
 input::placeholder {
   color: #999;
 }
@@ -161,7 +174,7 @@ input::placeholder {
 .share__links {
   margin-top: 20px;
 }
-#image-box-1 img {
+.profile__img {
   border-radius: 50%;
 }
 .form__image__label input {
@@ -173,6 +186,48 @@ input::placeholder {
     font-size: 25px;
     padding: 5px;
   }
+}
+.post__images__delete_btn {
+  cursor: pointer;
+}
+/*------------投稿フォーム------------*/
+
+.post__wrap {
+  .post__form {
+    width: 80%;
+    margin: 15% auto;
+    .form__input {
+      width: 100%;
+    }
+    .form__area {
+      width: 100%;
+    }
+    .form__radio {
+      width: 100%;
+      text-align: center;
+    }
+    #image-box-1 {
+      display: flex;
+      margin: 10px;
+      flex-wrap: wrap;
+    }
+    .field {
+      margin: 20px 0px;
+      background-color: #ccc;
+      width: 100%;
+      padding: 20px;
+      border-radius: 15px;
+      .form__image__label {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}
+.post__form__bg {
+  position: absolute;
+  width: 100%;
+  z-index: -99;
 }
 
 /*------------ヘッダー-------------*/
@@ -493,7 +548,10 @@ main {
 }
 
 /*------------フッター-------------*/
-
+/*------------投稿一覧-------------*/
+.post__img {
+  width: 100px;
+}
 /*------------モバイル版-------------*/
 @media (max-width: 900px) {
   /*------------メインビジュアル-------------*/
