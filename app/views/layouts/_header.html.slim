@@ -11,7 +11,7 @@ header
               = link_to destroy_user_session_path, method: :delete,  class:"nav__txt" do
                   = image_tag asset_path("logout.png"), class: "header__img"
               = link_to root_path, class:"nav__txt" do
-                  = image_tag asset_path("mypage.png"), class: "header__img"
+                  = image_tag asset_path("new.png"), class: "header__img"
             -else
               = link_to user_session_path, class:"nav__txt" do
                   = image_tag asset_path("login.png"), class: "header__img"

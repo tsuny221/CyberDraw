@@ -8,6 +8,14 @@
           = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
             = render "devise/shared/error_messages", resource: resource
             .field
+              = f.label :image, class:"form__label"
+              #image-box-1
+                  .item-num-0#image-box__container
+              label.form__image__label
+                i.fa.fa-camera
+                p.txt_size_xs 画像選択
+                = f.file_field :image, class:"form__image", id:"img-file"
+            .field
               = f.label :name, class:"form__label"
               = f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"ニックネーム", class:"form__input"
             .field

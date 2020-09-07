@@ -61,7 +61,7 @@ a:hover {
 }
 .form {
   position: absolute;
-  margin: 10% 0px;
+  margin: 110px 0px 0px 0px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -161,6 +161,20 @@ input::placeholder {
 .share__links {
   margin-top: 20px;
 }
+#image-box-1 img {
+  border-radius: 50%;
+}
+.form__image__label input {
+  display: none; /* もとのフォームボタンは非表示 */
+}
+.form__image__label {
+  cursor: pointer;
+  i {
+    font-size: 25px;
+    padding: 5px;
+  }
+}
+
 /*------------ヘッダー-------------*/
 header {
   width: 100%;
@@ -578,5 +592,14 @@ main {
     left: 100px;
     top: 400px;
     transform: perspective(250px) rotateY(20deg) skew(-5deg, 15deg);
+  }
+  .form {
+    width: 90%;
+  }
+  .field {
+    width: 80%;
+  }
+  .form__input {
+    width: 100%;
   }
 }

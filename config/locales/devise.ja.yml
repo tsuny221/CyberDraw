@@ -27,6 +27,7 @@ ja:
         remember_me: "次回から自動的にログイン"
         gender: 性別
         birth_date: 生年月日
+        image: プロフィール画像
     models:
       user: "ユーザ"
   devise:
