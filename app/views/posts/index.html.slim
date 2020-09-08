@@ -1,7 +1,0 @@
-.container
-  .row
-    ul
-     - @posts.each do |post|
-        li = post.title
-        - post.images.each do |image|
-          = image_tag url_for(image), class:"post__img"

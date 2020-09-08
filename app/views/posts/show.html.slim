@@ -1,0 +1,31 @@
+main
+  .container
+    .row
+      .post.post-show
+        .col-sm-9.post-show__cont
+            - @post.images.each do |image|
+              = image_tag url_for(image), class:"post__img"
+            .detail
+                p.title = @post.title
+                p.caption = @post.caption
+                .tags
+                  - @post.tags.each do |tag|
+                    = link_to root_path, class:"tag__txt" do
+                        | ##{tag.name}
+                .post-user__cont2
+                  - if @post.user.image.attached?
+                    = image_tag url_for(@post.user.image), class: "profile__img"
+                    .post-user__name
+                      = @post.user.name
+                    .post-user__introduction
+                      = @post.user.introduction
+                    .follow__btn.font_theme_cyber フォローする
+
+        .col-sm-3.post-user__cont
+              - if @post.user.image.attached?
+                  = image_tag url_for(@post.user.image), class: "profile__img"
+                  .post-user__name.txt_color_white
+                    = @post.user.name
+                  .post-user__introduction.txt_color_white
+                    = @post.user.introduction
+                  .follow__btn.font_theme_cyber フォローする

@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     if @post.save
       # タグを複数保存する多対多を組み、メソッドをpostモデルに追加することでできる
       @post.save_tag(tag_list)
-      redirect_to posts_path
+      redirect_to post_path(@post)
     else
       render :new
     end

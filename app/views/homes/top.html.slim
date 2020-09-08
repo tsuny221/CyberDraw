@@ -41,9 +41,19 @@
 main
   .container
     .row
-      ul
-        - @posts.each do |post|
-          li = post.title
-          /一枚目をサムネとして表示
-          - post.images.first(1).each do |image|
-            = image_tag url_for(image), class:"post__img"
+      .post.post-index
+        .post__head__txt.font_theme_cyber イラスト
+        b.hr.anim
+        .post-index__cont
+          - @posts.each do |post|
+            .post__box
+              = link_to post_path(post.id) do
+                /一枚目をサムネとして表示
+                - post.images.first(1).each do |image|
+                  = image_tag url_for(image), class:"post__img"
+                p.post__title.bold = post.title
+                .post-user__cont
+                  - if post.user.image.attached?
+                      = image_tag url_for(post.user.image), class: "profile__img"
+                      .post-user__txt.txt_color_white
+                        = post.user.name
