@@ -3,7 +3,7 @@
   .container
     .row
       .post__form
-          = form_with model: @post, url: posts_path, local: true do |f|
+          = form_with model: @post, url: post_path(@post), local: true do |f|
             = render "layouts/errors", obj: @post
             .field
               = f.label :images, class:"form__label"
@@ -13,6 +13,12 @@
                 i.fa.fa-camera
                 p.txt_size_xs 画像選択
                 = f.file_field :images, class:"form__image", id:"img-file",multiple: true
+              p 現在登録されている画像（削除するものはチェックしてください）
+              .post__images__flex
+                - @post.images.each do |image|
+                  .post__images__cont
+                    = f.check_box :image_ids, {:multiple => true}, image.id, false
+                    = image_tag image, :size=>"100x100"
             .field
               = f.text_field :title, autofocus: true, autocomplete: "name",placeholder:"作品タイトル", class:"form__input"
               = f.text_area :caption, autofocus: true, autocomplete: "email",placeholder:"キャプション", class:"form__area"

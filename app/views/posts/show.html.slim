@@ -14,18 +14,38 @@ main
                         | ##{tag.name}
                 .post-user__cont2
                   - if @post.user.image.attached?
-                    = image_tag url_for(@post.user.image), class: "profile__img"
-                    .post-user__name
-                      = @post.user.name
-                    .post-user__introduction
-                      = @post.user.introduction
-                    .follow__btn.font_theme_cyber フォローする
+                    = link_to user_path(@post.user.id) do
+                      = image_tag url_for(@post.user.image), class: "profile__img"
+                    = link_to user_path(@post.user.id) do
+                      .post-user__name
+                        = @post.user.name
+                    - if current_user != @post.user
+                      - if current_user.following?(@post.user)
+                        = link_to user_relationships_path(@post.user.id), method: :delete do
+                          .unfollow__btn.font_theme_cyber フォローはずす
+                      - else
+                        = link_to user_relationships_path(@post.user.id), method: :POST do
+                          .follow__btn.font_theme_cyber フォローする
+                    - else
+                      = link_to edit_post_path(@post.id) do
+                        i.fas.fa-edit.edit__btn.font_theme_cyber
+                      = link_to post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' } do
+                        i.fas.fa-trash-alt.destroy__btn.font_theme_cyber
+
 
         .col-sm-3.post-user__cont
               - if @post.user.image.attached?
-                  = image_tag url_for(@post.user.image), class: "profile__img"
-                  .post-user__name.txt_color_white
-                    = @post.user.name
-                  .post-user__introduction.txt_color_white
+                  = link_to user_path(@post.user.id) do
+                    = image_tag url_for(@post.user.image), class: "profile__img"
+                  = link_to user_path(@post.user.id) do
+                    .post-user__name
+                      = @post.user.name
+                  .post-user__introduction
                     = @post.user.introduction
-                  .follow__btn.font_theme_cyber フォローする
+                  - if current_user != @post.user
+                    - if current_user.following?(@post.user)
+                      = link_to user_relationships_path(@post.user.id), method: :delete do
+                        .unfollow__btn.font_theme_cyber フォローはずす
+                    - else
+                      = link_to user_relationships_path(@post.user.id), method: :POST do
+                        .follow__btn.font_theme_cyber フォローする

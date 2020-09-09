@@ -1,0 +1,28 @@
+main
+  .container
+    .row
+      .user-show
+        .user-show__cont
+                - if @user.image.attached?
+                  = image_tag url_for(@user.image), class: "profile__img"
+                .user-show__name.txt_color_white
+                  = @user.name
+                .user-show__introduction
+                    = @user.introduction
+                - if current_user != @user
+                  - if current_user.following?(@user)
+                    = link_to user_relationships_path(@user.id), method: :delete do
+                      .unfollow__btn.font_theme_cyber フォローはずす
+                  - else
+                    = link_to user_relationships_path(@user.id), method: :POST do
+                      .follow__btn.font_theme_cyber フォローする
+                - else
+                  = link_to edit_user_path(@user.id) do
+                    i.fas.fa-edit.edit__btn.font_theme_cyber
+                .follow__txt
+                  = link_to root_path, class:"follow__link font_theme_cyber" do
+                    | フォロー
+                    = @user.follower.size
+                  = link_to root_path, class:"follow__link font_theme_cyber" do
+                    | フォロワー
+                    = @user.followed.size

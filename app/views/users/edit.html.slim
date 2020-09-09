@@ -5,13 +5,34 @@
           = image_tag asset_path("logo.png"), class:"form__logo"
           h3.font_theme_cyber
             | プロフィールさくせい
-          = form_with model:@user, url:edit_user_path, rocal: true do |f|
+          = form_with model: @user, url: user_path(@user.id), local: true do |f|
+            = render "layouts/errors", obj: @user
             .field
-              = f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"名前", class:"form__input"
+              = f.label :image, class:"form__label"
+              #image-box-1
+                  .item-num-0#image-box__container
+              label.form__image__label
+                i.fa.fa-camera
+                p.txt_size_xs 画像選択
+                = f.file_field :image, class:"form__image", id:"img-file"
             .field
-              = f.date_field :birth_date, autofocus: true, autocomplete: "date",placeholder:"生年月日", class:"form__input"
+              = f.label :name, class:"form__label"
+              = f.text_field :name, autofocus: true, autocomplete: "name",placeholder:"ニックネーム", class:"form__input"
             .field
-              = f.text_area :introduction, autofocus: true, autocomplete: "introduction",placeholder:"紹介文", class:"form__input"
+              = f.label :email, class:"form__label"
+              = f.email_field :email, autofocus: true, autocomplete: "email",placeholder:"メールアドレス", class:"form__input"
+            .field
+              = f.label :gender, class:"form__label"
+              .form__radio
+                = f.radio_button :gender, :男, checked: "checked"
+                = f.label :男
+                = f.radio_button :gender, :女
+                = f.label :女
+                = f.radio_button :gender, :その他
+                = f.label :その他
+            .field
+              = f.label :introduction, class:"form__label"
+              = f.text_area :introduction, autofocus: true ,　placeholder:"紹介文",  class:"form__area"
             .actions
               = f.submit "登録", class:"form__submit font_theme_cyber"
 = javascript_include_tag 'signup.js'

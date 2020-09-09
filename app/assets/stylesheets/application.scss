@@ -47,8 +47,21 @@ a:hover {
     filter: alpha(opacity=70); /*ie6、7の透明度指定*/
   }
 }
+
 .txt_color_white {
   color: #fff;
+}
+.has-error .help-block,
+.txt_color_purple {
+  color: #b76cfd;
+}
+
+.txt_color_pink {
+  color: #fe53bb;
+}
+
+.txt_color_blue {
+  color: #01ffff;
 }
 .txt_size_xl {
   font-size: 25px;
@@ -70,6 +83,26 @@ a:hover {
 }
 .bold {
   font-weight: bold;
+}
+.unfollow__btn {
+  border-radius: 30px;
+  color: #01ffff;
+  border: solid 2px #01ffff;
+}
+.follow__btn {
+  border-radius: 30px;
+  color: #fff;
+  background-color: #01ffff;
+}
+.edit__btn {
+  border-radius: 30px;
+  color: #fff;
+  background-color: #b76cfd;
+}
+.destroy__btn {
+  border-radius: 30px;
+  color: #fff;
+  background-color: #ccc;
 }
 
 /*------------フォーム------------*/
@@ -206,7 +239,7 @@ input::placeholder {
 }
 .form__image__label {
   cursor: pointer;
-  i {
+  .fa-camera {
     font-size: 25px;
     padding: 5px;
   }
@@ -252,6 +285,11 @@ input::placeholder {
   position: absolute;
   width: 100%;
   z-index: -99;
+}
+.post__images__flex {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: left;
 }
 
 /*------------ヘッダー-------------*/
@@ -767,6 +805,8 @@ $barsize: 5px;
     .post-user__introduction {
       margin-top: 10px;
     }
+    .unfollow__btn,
+    .edit__btn,
     .follow__btn {
       text-align: center;
       display: block;
@@ -774,9 +814,6 @@ $barsize: 5px;
       max-width: 200px;
       font-size: 20px;
       padding: 5px;
-      border-radius: 30px;
-      color: #fff;
-      background-color: #01ffff;
     }
   }
   .post-show__cont {
@@ -827,18 +864,57 @@ $barsize: 5px;
           margin-top: 2px;
           margin-right: 10px;
         }
-        .post-user__introduction {
-        }
+        .unfollow__btn,
         .follow__btn {
           text-align: center;
           width: 100px;
           font-size: 15px;
           border-radius: 30px;
-          color: #fff;
-          background-color: #01ffff;
+          margin-right: 5px;
+        }
+        .destroy__btn,
+        .edit__btn {
+          text-align: center;
+          font-size: 15px;
+          padding: 5px 15px;
+          border-radius: 30px;
+          margin-right: 5px;
         }
       }
     }
+  }
+}
+/*------------ユーザー詳細-------------*/
+.user-show {
+  margin: 300px auto;
+  .profile__img {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  .user-show__name {
+    margin: 10px 0px;
+    text-align: center;
+  }
+  .unfollow__btn,
+  .follow__btn,
+  .edit__btn {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    max-width: 150px;
+    font-size: 15px;
+    padding: 5px;
+  }
+  .user-show__introduction,
+  .follow__txt {
+    text-align: center;
+    margin: 10px 0px;
+  }
+  .follow__link {
+    margin-right: 10px;
   }
 }
 /*------------モバイル版-------------*/

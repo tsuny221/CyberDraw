@@ -5,18 +5,18 @@ ja:
         user:
           attributes:
             email:
-              taken: "は既に使用されています。"
-              blank: "を入力してください。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
-              invalid: "は有効でありません。"
+              taken: "既に使用されています。"
+              blank: "必須項目です"
+              too_short: "%{count}文字以上に設定して下さい。"
+              too_long: "%{count}文字以下に設定して下さい。"
+              invalid: "有効でありません。"
             password:
-              taken: "は既に使用されています。"
-              blank: "を入力してください。"
-              too_short: "は%{count}文字以上に設定して下さい。"
-              too_long: "は%{count}文字以下に設定して下さい。"
-              invalid: "は有効でありません。"
-              confirmation: "が内容とあっていません。"
+              taken: "既に使用されています。"
+              blank: "必須項目です"
+              too_short: "%{count}文字以上に設定して下さい。"
+              too_long: "%{count}文字以下に設定して下さい。"
+              invalid: "有効でありません。"
+              confirmation: "内容とあっていません。"
     attributes:
       user:
         current_password: "現在のパスワード"

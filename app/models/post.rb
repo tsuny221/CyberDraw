@@ -5,7 +5,9 @@ class Post < ApplicationRecord
   has_many :tags, through: :tag_posts
   enum age_limit: { 全年齢: 1, "R-18": 2, "R-18G": 3 }
   enum open_range: { 全体に公開: 1, フォロワーに公開: 2, 非公開: 3 }
-
+  validates :title, presence: true
+  validates :caption, presence: true
+  validates :images, presence: true
   # タグを複数保存するメソッド
   def save_tag(tags)
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
