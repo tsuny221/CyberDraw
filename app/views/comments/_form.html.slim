@@ -1,0 +1,4 @@
+= form_with model:[post, comment], url: post_comments_path(post) do |f|
+  .comment__form
+    = f.text_area :content, class: "comment__form__area"
+    = f.submit "コメントする", class:"comment__form__submit font_theme_cyber"

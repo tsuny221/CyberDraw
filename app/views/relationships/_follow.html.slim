@@ -1,0 +1,6 @@
+- if current_user.following?(obj)
+  = link_to user_relationships_path(obj.id), method: :delete, remote: true do
+    .unfollow__btn.font_theme_cyber フォローはずす
+- else
+  = link_to user_relationships_path(obj.id), method: :post, remote: true do
+    .follow__btn.font_theme_cyber フォローする

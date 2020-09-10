@@ -20,10 +20,12 @@ class UsersController < ApplicationController
   end
 
   def follower
+     @user  = User.find(params[:id])
 
   end
 
   def followed
+     @user  = User.find(params[:id])
 
   end
 

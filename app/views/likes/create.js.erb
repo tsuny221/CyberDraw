@@ -1,0 +1,2 @@
+$("#favorite_<%= @post.id %>").html("<%= j(render partial: 'likes/favorite', locals: { post: @post}) %>");
+$("#favorite_count_<%= @post.id %>").html("<%= j(render partial: 'likes/favorite_count', locals: { post: @post}) %>");

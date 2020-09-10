@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   has_many_attached :images
   belongs_to :user, optional: true
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_many :tag_posts, dependent: :destroy
   has_many :tags, through: :tag_posts
   enum age_limit: { 全年齢: 1, "R-18": 2, "R-18G": 3 }

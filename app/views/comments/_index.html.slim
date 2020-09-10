@@ -1,0 +1,11 @@
+- post.comments.order(created_at: :desc).each do |comment|
+  .comment
+    - unless comment.id.nil?
+      .profile__img
+        = image_tag url_for(comment.user.image), class:"profile__img"
+      .comment__cont
+        .comment__txt
+          = comment.content
+      - if comment.user == current_user
+          = link_to post_comment_path(comment.post_id, comment.id), method: :delete, remote: true do
+            i.fas.fa-trash-alt.destroy__btn.font_theme_cyber

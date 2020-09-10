@@ -3,7 +3,7 @@ header
       .header__flex
         .header-left
           .logo
-            = link_to root_path do
+            = link_to root_path, data: {"turbolinks" => false} do
               = image_tag asset_path("logo_s.png"), class: "logo__img"
         .header-right
           .header-right__cont

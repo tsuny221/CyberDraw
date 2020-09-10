@@ -1,0 +1,6 @@
+- if current_user.already_liked?(post)
+  = link_to post_likes_path(post), method: :delete, remote: true do
+    i.fa.fa-heart aria-hidden="true" style="color: #fe53bb;"
+- else
+  = link_to post_likes_path(post), method: :post, remote: true do
+    i.far.fa-heart aria-hidden="true" style="color: #fe53bb;"
