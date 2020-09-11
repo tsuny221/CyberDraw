@@ -754,14 +754,15 @@ $barsize: 5px;
 }
 /*------------投稿一覧-------------*/
 .post-index {
-  .post__box {
-    margin: 20px;
-  }
   .post-index__cont {
-    margin: 20px;
     display: flex;
-    justify-content: left;
+    justify-content: space-around;
     flex-wrap: wrap;
+
+    .post__box {
+      display: block;
+      margin: 20px 10px;
+    }
     .post__img {
       width: 200px;
       height: 200px;
