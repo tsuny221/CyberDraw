@@ -1,2 +1,3 @@
-$("#post_follow_<%= @post.user.id %>").html("<%= j(render partial: 'relationships/follow', locals: { obj: @post.user}) %>");
-$("#user_follow_<%= @user.id %>").html("<%= j(render partial: 'relationships/follow', locals: { obj: @user}) %>");
+$("#post_follow_<%= @user.id %>").html("<%= j(render partial: 'relationships/follow', locals: {user: @user}) %>");
+$("#post_follow2_<%= @user.id %>").html("<%= j(render partial: 'relationships/follow', locals: {user: @user}) %>");
+$("#user_follow_<%= @user.id %>").html("<%= j(render partial: 'relationships/follow', locals: {user: @user}) %>");

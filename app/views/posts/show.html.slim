@@ -7,7 +7,7 @@ main
             - @post.images.each do |image|
               = image_tag url_for(image), class:"post__img"
             p.favorite.text-right id="favorite_#{@post.id}"
-                    = render "likes/favorite", post: @post
+                    = render "likes/favorite",  {user: @user, post: @post}
             .detail
                 p.title = @post.title
                 p.caption = @post.caption
@@ -20,15 +20,15 @@ main
                     = link_to root_path, class:"tag__txt" do
                         | ##{tag.name}
                 .post-user__cont2
-                  - if @post.user.image.attached?
-                    = link_to user_path(@post.user.id) do
-                      = image_tag url_for(@post.user.image), class: "profile__img"
-                    = link_to user_path(@post.user.id) do
+                  - if @user.image.attached?
+                    = link_to user_path(@user.id) do
+                      = image_tag url_for(@user.image), class: "profile__img"
+                    = link_to user_path(@user.id) do
                       .post-user__name
-                        = @post.user.name
-                    - if current_user != @post.user
-                      div id="post_follow_#{@post.user.id}"
-                        = render "relationships/follow", obj: @post.user
+                        = @user.name
+                    - if current_user != @user
+                      div id="post_follow2_#{@user.id}"
+                        = render "relationships/follow", user: @user
                     - else
                       = link_to edit_post_path(@post.id) do
                         i.fas.fa-edit.edit__btn.font_theme_cyber
@@ -36,17 +36,17 @@ main
                         i.fas.fa-trash-alt.destroy__btn.font_theme_cyber
           = render "comments/form", {comment: @comment, post: @post}
           div id="comment_#{@post.id}"
-              = render "comments/index", {post: @post}
+              = render "comments/index", post: @post
 
         .col-sm-3.post-user__cont
-              - if @post.user.image.attached?
-                  = link_to user_path(@post.user.id) do
-                    = image_tag url_for(@post.user.image), class: "profile__img"
-                  = link_to user_path(@post.user.id) do
+              - if @user.image.attached?
+                  = link_to user_path(@user.id) do
+                    = image_tag url_for(@user.image), class: "profile__img"
+                  = link_to user_path(@user.id) do
                     .post-user__name
-                      = @post.user.name
+                      = @user.name
                   .post-user__introduction
-                    = @post.user.introduction
-                  - if current_user != @post.user
-                   div id="post_follow_#{@post.user.id}"
-                    = render "relationships/follow", obj: @post.user
+                    = @user.introduction
+                  - if current_user != @user
+                   div id="post_follow_#{@user.id}"
+                    = render "relationships/follow", user: @user

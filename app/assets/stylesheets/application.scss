@@ -754,10 +754,13 @@ $barsize: 5px;
 }
 /*------------投稿一覧-------------*/
 .post-index {
+  .post__box {
+    margin: 20px;
+  }
   .post-index__cont {
     margin: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
     flex-wrap: wrap;
     .post__img {
       width: 200px;
@@ -788,7 +791,7 @@ $barsize: 5px;
 .post-show {
   .post-user__cont {
     margin-top: 20px;
-    padding: 30px;
+    padding: 20px;
     .profile__img {
       display: block;
       margin: 0 auto;
@@ -803,7 +806,8 @@ $barsize: 5px;
       margin-top: 10px;
     }
     .post-user__introduction {
-      margin-top: 10px;
+      text-align: center;
+      margin: 10px 0px;
     }
     .unfollow__btn,
     .edit__btn,
