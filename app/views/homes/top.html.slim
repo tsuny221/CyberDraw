@@ -42,10 +42,10 @@ main
   .container
     .row
       .post.post-index
-        .post__head__txt.font_theme_cyber イラスト
+        .post__head__txt 新着
         b.hr.anim
         .post-index__cont
-          - @posts.each do |post|
+          - @posts.first(10).each do |post|
             .post__box
               = link_to post_path(post.id) do
                 /一枚目をサムネとして表示
@@ -57,3 +57,35 @@ main
                       = image_tag url_for(post.user.image), class: "profile__img"
                       .post-user__txt.txt_color_white
                         = post.user.name
+        .post__head__txt ランキング
+        b.hr.anim
+        .post-index__cont
+          - @posts.first(10).each do |post|
+            .post__box
+              = link_to post_path(post.id) do
+                /一枚目をサムネとして表示
+                - post.images.first(1).each do |image|
+                  = image_tag url_for(image), class:"post__img"
+                p.post__title.bold = post.title
+                .post-user__cont
+                  - if post.user.image.attached?
+                      = image_tag url_for(post.user.image), class: "profile__img"
+                      .post-user__txt.txt_color_white
+                        = post.user.name
+        - if user_signed_in?
+          .post__head__txt  フォローしている人
+          b.hr.anim
+          .post-index__cont
+            -if @users.present?
+              - @following_users_posts.first(10).each do |post|
+                  .post__box
+                  = link_to post_path(post.id) do
+                    /一枚目をサムネとして表示
+                    - post.images.first(1).each do |image|
+                      = image_tag url_for(image), class:"post__img"
+                    p.post__title.bold = post.title
+                    .post-user__cont
+                      - if post.user.image.attached?
+                          = image_tag url_for(post.user.image), class: "profile__img"
+                          .post-user__txt.txt_color_white
+                            = post.user.name

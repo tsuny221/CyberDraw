@@ -15,10 +15,5 @@ main
                 - else
                   = link_to edit_user_path(@user.id) do
                     i.fas.fa-edit.edit__btn.font_theme_cyber
-                .follow__txt
-                  = link_to root_path, class:"follow__link font_theme_cyber" do
-                    | フォロー
-                    = @user.follower.size
-                  = link_to root_path, class:"follow__link font_theme_cyber" do
-                    | フォロワー
-                    = @user.followed.size
+                div id="user_follow_count_#{@user.id}"
+                  = render "relationships/follow_count", user: @user

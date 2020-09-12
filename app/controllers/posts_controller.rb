@@ -43,10 +43,7 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-  def index
-    @posts = Post.where(open_range: 1)
 
-  end
   def destroy
     @post = Post.find(params[:id])
     @post.destroy

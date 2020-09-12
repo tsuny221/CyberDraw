@@ -1,3 +1,4 @@
 $("#post_follow_<%= @user.id %>").html("<%= j(render partial: 'relationships/follow', locals: {user: @user}) %>");
 $("#post_follow2_<%= @user.id %>").html("<%= j(render partial: 'relationships/follow', locals: {user: @user}) %>");
 $("#user_follow_<%= @user.id %>").html("<%= j(render partial: 'relationships/follow', locals: {user: @user}) %>");
+$("#user_follow_count_<%= @user.id %>").html("<%= j(render partial: 'relationships/follow_count', locals: { user: @user}) %>");
