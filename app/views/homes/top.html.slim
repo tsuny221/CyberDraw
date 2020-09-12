@@ -59,17 +59,18 @@ main
                         .post-user__txt.txt_color_white
                           = post.user.name
           .post-index__link
-            = link_to "もっとみる", root_path, class:"post-index__link"
+            = link_to "もっとみる", new_path, class:"post-index__link"
         .post-index
           .post__head__txt ランキング
           b.hr.anim
           .post-index__cont
-            - @ranking_posts.first(10).each do |post|
+            - @ranking_posts.each.with_index(1) do |post, i|
               .post__box
                 = link_to post_path(post.id) do
                   /一枚目をサムネとして表示
                   - post.images.first(1).each do |image|
                     = image_tag url_for(image), class:"post__img"
+                  span.ranking #{i}位
                   p.post__title.bold = post.title
                   .post-user__cont
                     - if post.user.image.attached?
@@ -77,12 +78,13 @@ main
                         .post-user__txt.txt_color_white
                           = post.user.name
           p.post-index__link
-            = link_to "もっとみる", root_path, class:"post-index__link"
+            = link_to "もっとみる", ranking_path, class:"post-index__link"
         .post-index
           - if user_signed_in?
             .post__head__txt  フォローしている人
             b.hr.anim
             .post-index__cont
+              - if @following_users_posts.present?
                 - @following_users_posts.first(10).each do |post|
                   .post__box
                     = link_to post_path(post.id) do

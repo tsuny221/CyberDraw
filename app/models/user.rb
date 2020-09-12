@@ -33,4 +33,11 @@ class User < ApplicationRecord
    self.likes.exists?(post_id: post.id)
  end
 
+ def over18?
+    d1=self.birth_date.strftime("%Y%m%d").to_i
+    d2=Date.today.strftime("%Y%m%d").to_i
+    age = (d2 - d1) / 10000
+    age > 18
+end
+
 end

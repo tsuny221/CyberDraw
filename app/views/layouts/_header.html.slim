@@ -9,7 +9,7 @@ header
           .header-right__cont
             -if user_signed_in?
               = link_to new_post_path, class:"nav__txt" do
-                  = image_tag asset_path("new.png"), class: "header__img"
+                  = image_tag asset_path("post.png"), class: "header__img"
               = link_to destroy_user_session_path, method: :delete,  class:"nav__txt" do
                   = image_tag asset_path("logout.png"), class: "header__img"
             -else
@@ -28,7 +28,9 @@ header
             #gloval-nav
               nav.standard__txt
                 ul
-                 -if user_signed_in?
+                  li
+                        = link_to root_path, class:"nav__txt" do
+                          = image_tag asset_path("home.png"), class: "nav__img"
                   li
                       = link_to ranking_path, class:"nav__txt" do
                         = image_tag asset_path("ranking.png"), class: "nav__img"
@@ -38,16 +40,7 @@ header
                   li
                       = link_to root_path, class:"nav__txt" do
                         = image_tag asset_path("event.png"), class: "nav__img"
-                  li
-                      = link_to user_path(current_user), class:"nav__txt" do
-                        = image_tag asset_path("mypage.png"), class: "nav__img"
-                 - else
-                  li
-                      = link_to root_path, class:"nav__txt" do
-                        = image_tag asset_path("ranking.png"), class: "nav__img"
-                  li
-                      = link_to new_post_path, class:"nav__txt" do
-                        = image_tag asset_path("new.png"), class: "nav__img"
-                  li
-                      = link_to root_path, class:"nav__txt" do
-                        = image_tag asset_path("event.png"), class: "nav__img"
+                  -if user_signed_in?
+                    li
+                        = link_to user_path(current_user), class:"nav__txt" do
+                          = image_tag asset_path("mypage.png"), class: "nav__img"
