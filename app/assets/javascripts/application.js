@@ -34,7 +34,7 @@ $(function () {
   $(".post__box").each(function (index, element) {
     var w = $(element).width();
     $(".post-index__cont").append(
-      '<div style="height:0; width:' + w + 'px; margin:20px 10px;"></div>'
+      '<div style="height:0; width:' + w + 'px; margin:0px 10px;"></div>'
     );
   });
 });

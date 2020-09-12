@@ -30,10 +30,10 @@ header
                 ul
                  -if user_signed_in?
                   li
-                      = link_to root_path, class:"nav__txt" do
+                      = link_to ranking_path, class:"nav__txt" do
                         = image_tag asset_path("ranking.png"), class: "nav__img"
                   li
-                      = link_to root_path, class:"nav__txt" do
+                      = link_to new_path, class:"nav__txt" do
                         = image_tag asset_path("new.png"), class: "nav__img"
                   li
                       = link_to root_path, class:"nav__txt" do
