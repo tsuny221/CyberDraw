@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
   before_action :screen_user, only: [:edit, :update]
-  before_action :post_index
-  before_action :search
 
   def show
     @user = User.find(params[:id])
-    @user_posts = @new_posts.select do |post|
-      post.user == @user
+    @user_posts = @new_posts.where(user_id: current_user)
     end
   end
 

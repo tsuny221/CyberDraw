@@ -35,5 +35,9 @@
                                     .form__radio
                                         = f.radio_button :open_range_eq, 1, checked: "checked"
                                         = f.label :全体に公開
+                                        = f.radio_button :open_range_eq, 2
+                                        = f.label :フォロワー限定
+                                        = f.radio_button :open_range_eq, 3
+                                        = f.label :非公開
                                 .actions
                                     = f.submit "SEARCH", class:"form__submit font_theme_cyber"

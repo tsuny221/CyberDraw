@@ -1,6 +1,5 @@
 class HomesController < ApplicationController
-  before_action :post_index
-  before_action :search
+
   def top
   end
 
