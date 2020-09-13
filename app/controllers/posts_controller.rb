@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :screen_user, only: [:edit, :update, :destroy]
+  before_action :post_index
+  before_action :search
   def new
     @post = Post.new
   end

@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy # フォロワー取得
   has_many :following_user, through: :follower, source: :followed # 自分がフォローしている人
   has_many :follower_user, through: :followed, source: :follower # 自分をフォローしている人
+  has_many :relationships, dependent: :destroy
   validates :name, presence: true
   enum gender: { 男: 1, 女: 2, その他: 3 }
 

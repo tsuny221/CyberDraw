@@ -27,13 +27,22 @@
                 = f.text_field :name, class: "form__input"
             .field
               = f.label :age_limit, class:"form__label"
-              .form__radio
-                = f.radio_button :age_limit, :全年齢, checked: "checked"
-                = f.label :全年齢
-                = f.radio_button :age_limit, :"R-18"
-                = f.label :"R-18"
-                = f.radio_button :age_limit, :"R-18G"
-                = f.label :"R-18G"
+              - if current_user.over18?
+                .form__radio
+                  = f.radio_button :age_limit, :全年齢, checked: "checked"
+                  = f.label :全年齢
+                  = f.radio_button :age_limit, :"R-18"
+                  = f.label :"R-18"
+                  = f.radio_button :age_limit, :"R-18G"
+                  = f.label :"R-18G"
+              - else
+                .form__radio
+                  = f.radio_button :age_limit, :全年齢, checked: "checked"
+                  = f.label :全年齢
+                  = f.radio_button :age_limit, :"R-18", disabled: true
+                  = f.label :"R-18"
+                  = f.radio_button :age_limit, :"R-18G", disabled: true
+                  = f.label :"R-18G"
             .field
               = f.label :open_range, class:"form__label"
               .form__radio

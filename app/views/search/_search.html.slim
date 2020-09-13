@@ -1,0 +1,39 @@
+
+#modal1.modal.fade aria-hidden="true" aria-labelledby="label1" role="dialog" tabindex="-1"
+     .modal-dialog role="document"
+      .modal-content
+        .modal-header
+            button.close aria-label="Close" data-dismiss="modal" type="button"
+                span aria-hidden="true"  ×
+            h3#label1.modal-title.font_theme_cyber SEARCH
+        .modal-body
+                = search_form_for q, url: posts_path do |f|
+                            .search
+                                .field
+                                    = f.label :title, 'タイトル・タグ',class:"form__label font_theme_cyber"
+                                    = f.search_field :title_or_tags_name_cont,class:"form__item_input"
+                                .field
+                                    = f.label :age_limit,"ねんれいせいげん", class:"form__label font_theme_cyber"
+                                    - if user_signed_in? && current_user.over18?
+                                        .form__radio
+                                            = f.radio_button :age_limit_eq, 1 , checked: "checked"
+                                            = f.label :全年齢
+                                            = f.radio_button :age_limit_eq, 2
+                                            = f.label :"R-18"
+                                            = f.radio_button :age_limit_eq, 3
+                                            = f.label :"R-18G"
+                                    - else
+                                        .form__radio
+                                            = f.radio_button :age_limit_eq, 1, checked: "checked"
+                                            = f.label :全年齢
+                                            = f.radio_button :age_limit_eq, 2, disabled: true
+                                            = f.label :"R-18"
+                                            = f.radio_button :age_limit_eq, 3, disabled: true
+                                            = f.label :"R-18G"
+                                .field
+                                    = f.label :open_range,"こうかいはんい", class:"form__label font_theme_cyber"
+                                    .form__radio
+                                        = f.radio_button :open_range_eq, 1, checked: "checked"
+                                        = f.label :全体に公開
+                                .actions
+                                    = f.submit "SEARCH", class:"form__submit font_theme_cyber"

@@ -49,6 +49,8 @@ main
             - @new_posts.first(10).each do |post|
               .post__box
                 = link_to post_path(post.id) do
+                  /年齢制限表示
+                  = render "posts/age_limit", post: post
                   /一枚目をサムネとして表示
                   - post.images.first(1).each do |image|
                     = image_tag url_for(image), class:"post__img"
@@ -67,10 +69,12 @@ main
             - @ranking_posts.each.with_index(1) do |post, i|
               .post__box
                 = link_to post_path(post.id) do
+                  /年齢制限表示
+                  = render "posts/age_limit", post: post
                   /一枚目をサムネとして表示
                   - post.images.first(1).each do |image|
                     = image_tag url_for(image), class:"post__img"
-                  span.ranking #{i}位
+                  span.ranking__badge #{i}位
                   p.post__title.bold = post.title
                   .post-user__cont
                     - if post.user.image.attached?
@@ -88,6 +92,8 @@ main
                 - @following_users_posts.first(10).each do |post|
                   .post__box
                     = link_to post_path(post.id) do
+                      /年齢制限表示
+                      = render "posts/age_limit", post: post
                       /一枚目をサムネとして表示
                       - post.images.first(1).each do |image|
                         = image_tag url_for(image), class:"post__img"

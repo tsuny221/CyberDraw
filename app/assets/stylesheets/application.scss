@@ -32,6 +32,7 @@ body {
 }
 
 /*------------共通-------------*/
+
 a {
   color: #999;
   text-decoration: none;
@@ -764,7 +765,7 @@ $barsize: 5px;
       position: relative;
       display: block;
       margin: 20px 10px;
-      .ranking {
+      .ranking__badge {
         font-weight: bold;
         align-items: center;
         background-color: #888;
@@ -780,7 +781,7 @@ $barsize: 5px;
         height: 2.5rem;
       }
       /* 1位 */
-      &:nth-child(1) .ranking {
+      &:nth-child(1) .ranking__badge {
         width: 3rem;
         height: 3rem;
         background-color: #fe53bb;
@@ -789,7 +790,7 @@ $barsize: 5px;
       }
 
       /* 2位 */
-      &:nth-child(2) .ranking {
+      &:nth-child(2) .ranking_badge {
         width: 3rem;
         height: 3rem;
         background-color: #b76cfd;
@@ -798,14 +799,28 @@ $barsize: 5px;
       }
 
       /* 3位 */
-      &:nth-child(3) .ranking {
+      &:nth-child(3) .ranking__badge {
         width: 3rem;
         height: 3rem;
         background-color: #01ffff;
         border: 1px solid #01ffff;
         color: #fff;
       }
+      .age-limit__badge {
+        font-weight: bold;
+        align-items: center;
+        padding: 2px;
+        background-color: #fe53bb;
+        color: #fff;
+        display: flex;
+        font-size: 13px;
+        justify-content: center;
+        position: absolute;
+        top: 170px;
+        right: 0;
+      }
     }
+
     .post__img {
       width: 200px;
       height: 200px;

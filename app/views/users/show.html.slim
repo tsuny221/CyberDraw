@@ -17,3 +17,22 @@ main
                     i.fas.fa-edit.edit__btn.font_theme_cyber
                 div id="user_follow_count_#{@user.id}"
                   = render "relationships/follow_count", user: @user
+      .post
+        .post-index
+          .post__head__txt このユーザーの作品
+          b.hr.anim
+          .post-index__cont
+            - @user_posts.each do |post|
+              .post__box
+                = link_to post_path(post.id) do
+                  /年齢制限表示
+                  = render "posts/age_limit", post: post
+                  /一枚目をサムネとして表示する
+                  - post.images.first(1).each do |image|
+                    = image_tag url_for(image), class:"post__img"
+                  p.post__title.bold = post.title
+                  .post-user__cont
+                    - if post.user.image.attached?
+                        = image_tag url_for(post.user.image), class: "profile__img"
+                        .post-user__txt.txt_color_white
+                          = post.user.name

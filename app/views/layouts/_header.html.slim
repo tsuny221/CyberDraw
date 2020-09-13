@@ -1,3 +1,4 @@
+= render 'search/search', q: @q
 header
   .header__wrap
       .header__flex
@@ -17,7 +18,9 @@ header
                   = image_tag asset_path("login.png"), class: "header__img"
               = link_to new_user_registration_path, class:"nav__txt" do
                   = image_tag asset_path("signup.png"), class: "header__img"
-            i.fab.fa-searchengin.txt_color_white
+            a.btn.btn_theme_main data-target="#modal1" data-toggle="modal" type="button"
+                i.fab.fa-searchengin.txt_color_white
+
           #nav
             #nav-toggle
               div
