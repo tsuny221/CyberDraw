@@ -1,0 +1,18 @@
+main
+  .container
+    .row
+      .user-index
+        - @users.each do |user|
+          .user-index__cont
+                - if user.image.attached?
+                  = link_to user_path(user) do
+                    = image_tag url_for(user.image), class: "profile__img"
+                = link_to user_path(user) do
+                  p.user-index__name.txt_color_white
+                    = user.name
+                - if current_user != user
+                 div id="user_follow_#{user.id}"
+                  = render "relationships/follow", user: user
+                - else
+                  = link_to user_path(user) do
+                    .unfollow__btn.font_theme_cyber mypage

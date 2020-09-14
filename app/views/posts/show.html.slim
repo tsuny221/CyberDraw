@@ -24,7 +24,7 @@ main
                     = link_to user_path(@user.id) do
                       = image_tag url_for(@user.image), class: "profile__img"
                     = link_to user_path(@user.id) do
-                      .post-user__name
+                      p.post-user__name
                         = @user.name
                     - if current_user != @user
                       div id="post_follow2_#{@user.id}"
@@ -43,9 +43,9 @@ main
                   = link_to user_path(@user.id) do
                     = image_tag url_for(@user.image), class: "profile__img"
                   = link_to user_path(@user.id) do
-                    .post-user__name
+                    p.post-user__name
                       = @user.name
-                  .post-user__introduction
+                  p.post-user__introduction
                     = @user.introduction
                   - if current_user != @user
                    div id="post_follow_#{@user.id}"

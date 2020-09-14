@@ -868,7 +868,8 @@ $barsize: 5px;
       margin-top: 10px;
     }
     .post-user__introduction {
-      text-align: center;
+      word-wrap: break-word;
+      text-align: left;
       margin: 10px 0px;
     }
     .unfollow__btn,
@@ -1038,7 +1039,8 @@ $barsize: 5px;
 }
 /*------------ユーザー詳細-------------*/
 .user-show {
-  margin: 300px auto;
+  margin: 20% auto;
+  width: 50%;
   .profile__img {
     display: block;
     margin: 0 auto;
@@ -1047,8 +1049,9 @@ $barsize: 5px;
     object-fit: cover;
   }
   .user-show__name {
-    margin: 10px 0px;
     text-align: center;
+    font-size: 20px;
+    margin-top: 10px;
   }
   .unfollow__btn,
   .follow__btn,
@@ -1060,15 +1063,62 @@ $barsize: 5px;
     font-size: 15px;
     padding: 5px;
   }
-  .user-show__introduction,
+  .user-show__introduction {
+    word-wrap: break-word;
+    text-align: left;
+    margin: 20px auto;
+  }
   .follow__txt {
     text-align: center;
-    margin: 10px 0px;
+    margin: 10px auto;
   }
   .follow__link {
     margin-right: 10px;
   }
 }
+/*------------ユーザー一覧（フォローフォロワー）-------------*/
+.user-index {
+  margin: 20% auto;
+  width: 70%;
+  .user-index__cont {
+    border: 1px solid #b76cfd;
+    border-bottom: 4px solid #b76cfd;
+    border-radius: 15px;
+    padding: 5px 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    &:hover {
+      background-color: #b76cfd;
+    }
+    .profile__img {
+      margin-right: 3rem;
+      display: block;
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+    }
+    .user-index__name {
+      margin-right: 3rem;
+      margin-top: 13px;
+      text-align: center;
+    }
+    .unfollow__btn,
+    .follow__btn,
+    .edit__btn {
+      text-align: center;
+      display: block;
+      margin-top: 10px;
+      width: 100px;
+      height: 30px;
+      font-size: 15px;
+    }
+    .follow__btn {
+      padding-top: 3px;
+    }
+  }
+}
+
 /*------------モバイル版-------------*/
 @media (max-width: 900px) {
   /*------------メインビジュアル-------------*/
@@ -1224,5 +1274,8 @@ $barsize: 5px;
     .post-show__cont {
       margin-top: 100px;
     }
+  }
+  .user-index {
+    width: 90%;
   }
 }

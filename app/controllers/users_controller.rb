@@ -2,9 +2,16 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update]
   before_action :screen_user, only: [:edit, :update]
 
+  def follow
+
+  end
+
   def show
     @user = User.find(params[:id])
-    @user_posts = @new_posts.where(user_id: current_user)
+    if @user == current_user
+      @user_posts = Post.where(user_id: @user)
+    else
+      @user_posts = @new_posts.where(user_id: @user)
     end
   end
 

@@ -1,7 +1,7 @@
 .follow__txt
-    = link_to root_path, class:"follow__link font_theme_cyber" do
+    = link_to user_follows_path(user), class:"follow__link font_theme_cyber" do
       | フォロー
-      = @user.follower.size
-    = link_to root_path, class:"follow__link font_theme_cyber" do
+      = user.follower.size
+    = link_to user_followers_path(user), class:"follow__link font_theme_cyber" do
       | フォロワー
-      = @user.followed.size
+      = user.followed.size

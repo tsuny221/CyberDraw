@@ -5,9 +5,9 @@ main
         .user-show__cont
                 - if @user.image.attached?
                   = image_tag url_for(@user.image), class: "profile__img"
-                .user-show__name.txt_color_white
+                p.user-show__name.txt_color_white
                   = @user.name
-                .user-show__introduction
+                p.user-show__introduction
                     = @user.introduction
                 - if current_user != @user
                  div id="user_follow_#{@user.id}"
